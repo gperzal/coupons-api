@@ -26,7 +26,13 @@ jobs:
           source venv/bin/activate
           pip install -r requirements.txt
 
-      - name: 🧪 Run Pytest
+      - name: 🧪 Run Pytest with Coverage (HTML)
         run: |
           source venv/bin/activate
-          pytest
+          pytest --cov=app --cov-report html tests/
+
+      - name: 📤 Upload Coverage Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: htmlcov
+          path: htmlcov

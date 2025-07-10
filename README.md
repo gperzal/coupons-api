@@ -110,7 +110,8 @@ All tests live under the `tests/` directory:
 
 ## 📊 Code Coverage
 
-You can measure what percentage of your code is covered by tests using pytest-cov. Run the following command to see the coverage report in your terminal:
+You can measure what percentage of your code is covered by tests using pytest-cov.  
+To see the coverage report in your terminal, run:
 
 ```bash
 pytest --cov-report term --cov=app tests/
@@ -138,6 +139,17 @@ TOTAL                19      0   100%
 A 100% coverage means that all lines of code were executed by the tests.
 
 ---
+
+### 📈 HTML Coverage Report
+
+If you want a visual and interactive report, generate it in HTML format with:
+
+```bash
+pytest --cov=app --cov-report html tests/
+```
+
+This will create an `htmlcov` folder.  
+Open `htmlcov/index.html` in your browser to explore the
 
 ## 🔄 CI/CD with GitHub Actions
 

@@ -22,12 +22,12 @@ Demonstrate how a small change in logic can introduce regressions—and how auto
 
 ## 🛠️ Tech Stack
 
-| Tool        | Version  | Purpose                      |
-|-------------|----------|------------------------------|
-| 🐍 Python    | 3.10+    | Programming language         |
-| 🧪 pytest    | Latest   | Test framework               |
-| 🔄 GitHub Actions | -        | CI/CD pipeline automation   |
-| 📦 pip       | -        | Dependency management        |
+| Tool              | Version | Purpose                   |
+| ----------------- | ------- | ------------------------- |
+| 🐍 Python         | 3.10+   | Programming language      |
+| 🧪 pytest         | Latest  | Test framework            |
+| 🔄 GitHub Actions | -       | CI/CD pipeline automation |
+| 📦 pip            | -       | Dependency management     |
 
 ---
 
@@ -55,12 +55,12 @@ Demonstrate how a small change in logic can introduce regressions—and how auto
 
 ## 🚀 Agile Testing Principles Applied
 
-| 🧠 Principle | Implementation |
-|-------------|----------------|
-| 🤖 **Test Automation** | Business logic and API are fully tested using `pytest` |
-| ⚡ **Fast Feedback** | All tests run automatically on each push/PR via GitHub Actions |
+| 🧠 Principle                | Implementation                                                 |
+| --------------------------- | -------------------------------------------------------------- |
+| 🤖 **Test Automation**      | Business logic and API are fully tested using `pytest`         |
+| ⚡ **Fast Feedback**        | All tests run automatically on each push/PR via GitHub Actions |
 | 🛡️ **Regression Detection** | Intentional changes trigger test failures to catch regressions |
-| 📈 **Continuous Quality** | CI pipeline blocks merging of faulty code |
+| 📈 **Continuous Quality**   | CI pipeline blocks merging of faulty code                      |
 
 ---
 
@@ -99,12 +99,43 @@ pytest
 
 All tests live under the `tests/` directory:
 
-| File | Type | Description |
-|------|------|-------------|
-| `test_coupons.py` | 🔧 Unit | Tests the discount and tax logic |
+| File              | Type           | Description                                       |
+| ----------------- | -------------- | ------------------------------------------------- |
+| `test_coupons.py` | 🔧 Unit        | Tests the discount and tax logic                  |
 | `test_api.py`     | 🔗 Integration | Tests the `/price` endpoint with various payloads |
 
 > ℹ️ `pytest.ini` ensures smooth test discovery and config
+
+---
+
+## 📊 Code Coverage
+
+You can measure what percentage of your code is covered by tests using pytest-cov. Run the following command to see the coverage report in your terminal:
+
+```bash
+pytest --cov-report term --cov=app tests/
+```
+
+This will generate a table like the following:
+
+```
+Name              Stmts   Miss  Cover
+-------------------------------------
+app\__init__.py       0      0   100%
+app\api.py           11      0   100%
+app\coupons.py        8      0   100%
+-------------------------------------
+TOTAL                19      0   100%
+```
+
+**What does each column mean?**
+
+- **Name**: The file analyzed.
+- **Stmts**: Total number of executable lines in the file.
+- **Miss**: Lines that were not executed by any test (uncovered lines).
+- **Cover**: Coverage percentage (lines covered by tests out of the total).
+
+A 100% coverage means that all lines of code were executed by the tests.
 
 ---
 
@@ -126,14 +157,15 @@ graph TD
 
 ## ✅ Contribution Guide
 
-| Step | Action |
-|------|--------|
-| 1️⃣ | Fork the repo |
-| 2️⃣ | Create a new branch: `git checkout -b fix/my-fix` |
-| 3️⃣ | Write or update tests |
-| 4️⃣ | Open a Pull Request |
+| Step | Action                                            |
+| ---- | ------------------------------------------------- |
+| 1️⃣   | Fork the repo                                     |
+| 2️⃣   | Create a new branch: `git checkout -b fix/my-fix` |
+| 3️⃣   | Write or update tests                             |
+| 4️⃣   | Open a Pull Request                               |
 
 ### PR Checklist:
+
 - [ ] ✅ All tests passing
 - [ ] 🧪 New tests added if necessary
 - [ ] 📝 README updated if needed
@@ -154,6 +186,7 @@ graph TD
 <div align="center">
 
 **Developed as part of the module**
+
 ### 🎯 "Fundamentals and Principles of Agile Testing"
 
 ---
